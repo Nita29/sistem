@@ -67,16 +67,16 @@ class I_merta extends CI_Controller
         $data['title'] = "Informasi Publik Serta merta";
 
 
-        // //inisiasi tabel dan field 
-        // $table = "i_merta";
-        // $field = "kode_dokumen";
-        // //generate kode unik
-        // $kode = 'FI-PSM' . date('dmy');
-        // $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        // $kode_tambah = (int)substr($kode_terakhir, -5, 5);
-        // $kode_tambah++;
-        // $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        // $data['kode_dokumen'] = $kode . $number;
+        //inisiasi tabel dan field 
+        $table = "i_merta";
+        $field = "kode_dokumen";
+        //generate kode unik
+        $kode = 'FI-PSM' . date('dmy');
+        $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+        $kode_tambah = (int)substr($kode_terakhir, -5, 5);
+        $kode_tambah++;
+        $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+        $data['kode_dokumen'] = $kode . $number;
 
         $this->template->load('templates/dashboard', 'i_merta/add', $data);
         if (!$this->upload->do_upload('upload')) {
@@ -111,32 +111,32 @@ class I_merta extends CI_Controller
         }
 
 
-        // if ($this->form_validation->run() == false) {
-        //     $data['title'] = "Informasi publik serta merta";
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "Informasi publik serta merta";
 
-        //     //inisiasi tabel dan field 
-        //     $table = "i_merta";
-        //     $field = "kode_dokumen";
-        //     //generate kode unik
-        //     $kode = 'F-ISM-' . date('dmy');
-        //     $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        //     $kode_tambah = substr($kode_terakhir, -5, 5);
-        //     $kode_tambah++;
-        //     $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        //     $data['kode_dokumen'] = $kode . $number;
+            //inisiasi tabel dan field 
+            $table = "i_merta";
+            $field = "kode_dokumen";
+            //generate kode unik
+            $kode = 'F-ISM-' . date('dmy');
+            $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+            $kode_tambah = substr($kode_terakhir, -5, 5);
+            $kode_tambah++;
+            $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+            $data['kode_dokumen'] = $kode . $number;
 
-        //     $this->template->load('templates/dashboard', 'i_merta/add', $data);
-        // } else {
-        //     $input = $this->input->post(null, true);
-        //     $save = $this->admin->insert('i_merta', $input);
-        //     if ($save) {
-        //         set_pesan('data berhasil disimpan.');
-        //         redirect('i_merta');
-        //     } else {
-        //         set_pesan('data gagal disimpan', false);
-        //         redirect('i_merta/add');
-        //     }
-        // }
+            $this->template->load('templates/dashboard', 'i_merta/add', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $save = $this->admin->insert('i_merta', $input);
+            if ($save) {
+                set_pesan('data berhasil disimpan.');
+                redirect('i_merta');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('i_merta/add');
+            }
+        }
     }
 
     public function edit($idMerta)
