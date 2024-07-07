@@ -34,15 +34,15 @@ class User extends CI_Controller
             $this->form_validation->set_rules('password', 'Password', 'required|min_length[3]|trim');
             $this->form_validation->set_rules('password2', 'Konfirmasi Password', 'matches[password]|trim');
         } else {
-            // $db = $this->admin->get('user', ['id_user' => $this->input->post('id_user', true)]);
-            // $username = $this->input->post('username', true);
-            // $email = $this->input->post('email', true);
+            $db = $this->admin->get('user', ['id_user' => $this->input->post('id_user', true)]);
+            $username = $this->input->post('username', true);
+            $email = $this->input->post('email', true);
 
-            // $uniq_username = $db['username'] == $username ? '' : '|is_unique[user.username]';
-            // $uniq_email = $db['email'] == $email ? '' : '|is_unique[user.email]';
+            $uniq_username = $db['username'] == $username ? '' : '|is_unique[user.username]';
+            $uniq_email = $db['email'] == $email ? '' : '|is_unique[user.email]';
 
-            // $this->form_validation->set_rules('username', 'Username', 'required|trim|alpha_numeric' . $uniq_username);
-            // $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $uniq_email);
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|alpha_numeric' . $uniq_username);
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email' . $uniq_email);
         }
     }
 
