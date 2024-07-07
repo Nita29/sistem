@@ -65,67 +65,67 @@ class Banner extends CI_Controller
         $data['title'] = "Banner";
         $this->template->load('templates/dashboard', 'banner/add', $data);
 
-        // $data['title'] = "Banner";
-        // $this->template->load('templates/dashboard', 'banner/add', $data);
+        $data['title'] = "Banner";
+        $this->template->load('templates/dashboard', 'banner/add', $data);
 
-        // $config['upload_path'] = './banner_upload/gambar1';
-        // $config['allowed_types'] = 'jpeg|jpg|png|';
-        // $config['max_size'] = 2048;
-        // $config['max_width'] = 1600;
-        // $config['max_height'] = 650;
+        $config['upload_path'] = './banner_upload/gambar1';
+        $config['allowed_types'] = 'jpeg|jpg|png|';
+        $config['max_size'] = 2048;
+        $config['max_width'] = 1600;
+        $config['max_height'] = 650;
 
-        // $this->load->library('upload', $config);
-        // $this->upload->initialize($config);
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
 
-        // if (!$this->upload->do_upload('gambar1')) {
-        // } else {
+        if (!$this->upload->do_upload('gambar1')) {
+        } else {
 
-        //     $config['upload_path'] = './banner_upload/gambar2/';
-        //     $config['allowed_types'] = 'jpeg|jpg|png|';
-        //     $config['max_size'] = 2048;
-        //     $config['max_width'] = 1600;
-        //     $config['max_height'] = 650;
-        //     $media1 = $this->upload->data();
-        //     $inputFileName = './banner_upload/gambar2/' . $media1['file_name'];
-        //     $this->load->library('upload', $config);
-        //     $this->upload->initialize($config);
+            $config['upload_path'] = './banner_upload/gambar2/';
+            $config['allowed_types'] = 'jpeg|jpg|png|';
+            $config['max_size'] = 2048;
+            $config['max_width'] = 1600;
+            $config['max_height'] = 650;
+            $media1 = $this->upload->data();
+            $inputFileName = './banner_upload/gambar2/' . $media1['file_name'];
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
 
-        //     if (!$this->upload->do_upload('gambar2')) {
-        //     } else {
+            if (!$this->upload->do_upload('gambar2')) {
+            } else {
 
-        //         $config['upload_path'] = './banner_upload/gambar3/';
-        //         $config['allowed_types'] = 'jpeg|jpg|png|';
-        //         $config['max_size'] = 2048;
-        //         $config['max_width'] = 1600;
-        //         $config['max_height'] = 650;
-        //         $media2 = $this->upload->data();
-        //         $inputFileName = './banner_upload/gambar3/' . $media2['file_name'];
-        //         $this->load->library('upload', $config);
-        //         $this->upload->initialize($config);
+                $config['upload_path'] = './banner_upload/gambar3/';
+                $config['allowed_types'] = 'jpeg|jpg|png|';
+                $config['max_size'] = 2048;
+                $config['max_width'] = 1600;
+                $config['max_height'] = 650;
+                $media2 = $this->upload->data();
+                $inputFileName = './banner_upload/gambar3/' . $media2['file_name'];
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
 
-        //         if (!$this->upload->do_upload('gambar3')) {
-        //         } else {
+                if (!$this->upload->do_upload('gambar3')) {
+                } else {
 
-        //             $media3 = $this->upload->data();
-        //             $inputFileName = './banner_upload/gambar3/' . $media3['file_name'];
+                    $media3 = $this->upload->data();
+                    $inputFileName = './banner_upload/gambar3/' . $media3['file_name'];
 
-        //             $data = array(
-        //                 'gambar1' => $media1['file_name'],
-        //                 'gambar2' => $media2['file_name'],
-        //                 'gambar3' => $media3['file_name'],
+                    $data = array(
+                        'gambar1' => $media1['file_name'],
+                        'gambar2' => $media2['file_name'],
+                        'gambar3' => $media3['file_name'],
 
-        //             );
-        //             $save = $this->admin->insert('banner', $data);
-        //             if ($save > 0) {
-        //                 set_pesan('data berhasil disimpan.');
-        //                 redirect('banner');
-        //             } else {
-        //                 set_pesan('data gagal disimpan', false);
-        //                 redirect('banner/add');
-        //             }
-        //         }
-        //     }
-        // }
+                    );
+                    $save = $this->admin->insert('banner', $data);
+                    if ($save > 0) {
+                        set_pesan('data berhasil disimpan.');
+                        redirect('banner');
+                    } else {
+                        set_pesan('data gagal disimpan', false);
+                        redirect('banner/add');
+                    }
+                }
+            }
+        }
     }
 
 
