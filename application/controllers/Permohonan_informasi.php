@@ -99,67 +99,49 @@ class Permohonan_informasi extends CI_Controller
                 $media2 = $this->upload->data();
                 $inputFileName = './permohonan/surat/' . $media2['file_name'];
 
-                // //tanda pengenal 
-                // $resume = $this->upload->data();
-                // $resume = $resume['file_name'];
-                // //surat
-                // $surat = $this->upload->data();
-                // $surat =  $surat['file_name'];
+                //tanda pengenal 
+                $resume = $this->upload->data();
+                $resume = $resume['file_name'];
+                //surat
+                $surat = $this->upload->data();
+                $surat =  $surat['file_name'];
 
-                // $tanggal_masuk = $this->input->post('tanggal_masuk');
-                // $jenis = $this->input->post('jenis', TRUE);
-                // $nama = $this->input->post('nama', TRUE);
-                // $alamat = $this->input->post('alamat');
-                // $jenis_kelamin = $this->input->post('jenis_kelamin', TRUE);
-                // $kecamatan = $this->input->post('kecamatan', TRUE);
-                // $kelurahan = $this->input->post('kelurahan', TRUE);
-                // $kab = $this->input->post('kab', TRUE);
-                // $provinsi = $this->input->post('provinsi', TRUE);
-                // $kodepos = $this->input->post('kodepos', TRUE);
-                // $email = $this->input->post('email', TRUE);
-                // $mobile = $this->input->post('mobile', TRUE);
-                // $nik = $this->input->post('nik', TRUE);
-                // $tema = $this->input->post('tema', TRUE);
-                // $tujuan = $this->input->post('tujuan', TRUE);
-
-
-                // $data = array(
-                //     'tanggal_masuk' => $tanggal_masuk,
-                //     'jenis' => $jenis,
-                //     'nama' => $nama,
-                //     'alamat' => $alamat,
-                //     'jenis_kelamin' => $jenis_kelamin,
-                //     'kecamatan' => $kecamatan,
-                //     'kelurahan' => $kelurahan,
-                //     'kab' => $kab,
-                //     'provinsi' => $provinsi,
-                //     'kodepos' => $kodepos,
-                //     'email' => $email,
-                //     'mobile' => $mobile,
-                //     'nik' => $nik,
-                //     'resume' => $resume,
-                //     'tema' => $tema,
-                //     'tujuan' => $tujuan,
+                $tanggal_masuk = $this->input->post('tanggal_masuk');
+                $jenis = $this->input->post('jenis', TRUE);
+                $nama = $this->input->post('nama', TRUE);
+                $alamat = $this->input->post('alamat');
+                $jenis_kelamin = $this->input->post('jenis_kelamin', TRUE);
+                $kecamatan = $this->input->post('kecamatan', TRUE);
+                $kelurahan = $this->input->post('kelurahan', TRUE);
+                $kab = $this->input->post('kab', TRUE);
+                $provinsi = $this->input->post('provinsi', TRUE);
+                $kodepos = $this->input->post('kodepos', TRUE);
+                $email = $this->input->post('email', TRUE);
+                $mobile = $this->input->post('mobile', TRUE);
+                $nik = $this->input->post('nik', TRUE);
+                $tema = $this->input->post('tema', TRUE);
+                $tujuan = $this->input->post('tujuan', TRUE);
 
 
                 $data = array(
-                    'tanggal_masuk' => $this->input->post('tanggal_masuk'),
-                    'jenis' => $this->input->post('jenis'),
-                    'nama' => $this->input->post('nama'),
-                    'alamat' => $this->input->post('alamat'),
-                    'jenis_kelamin' => $this->input->post('jenis_kelamin'),
-                    'kecamatan' => $this->input->post('kecamatan'),
-                    'kelurahan' => $this->input->post('kelurahan'),
-                    'kab' => $this->input->post('kab'),
-                    'provinsi' => $this->input->post('provinsi'),
-                    'kodepos' => $this->input->post('kodepos'),
-                    'email' => $this->input->post('email'),
-                    'mobile' => $this->input->post('mobile'),
-                    'nik' => $this->input->post('nik'),
-                    'tema' => $this->input->post('tema'),
-                    'tujuan' => $this->input->post('tujuan'),
-                    'resume' => $media1['file_name'],
-                    'surat' => $media2['file_name'],
+                    'tanggal_masuk' => $tanggal_masuk,
+                    'jenis' => $jenis,
+                    'nama' => $nama,
+                    'alamat' => $alamat,
+                    'jenis_kelamin' => $jenis_kelamin,
+                    'kecamatan' => $kecamatan,
+                    'kelurahan' => $kelurahan,
+                    'kab' => $kab,
+                    'provinsi' => $provinsi,
+                    'kodepos' => $kodepos,
+                    'email' => $email,
+                    'mobile' => $mobile,
+                    'nik' => $nik,
+                    'resume' => $resume,
+                    'tema' => $tema,
+                    'tujuan' => $tujuan,
+
+
 
                 );
                 $save = $this->admin->insert('permohonan', $data);
@@ -340,72 +322,72 @@ class Permohonan_informasi extends CI_Controller
 
 
 
-        // $config['upload_path']          = './upload/';
-        // $config['allowed_types']        = 'gif|jpg|png|pdf|doc|json|csv';
-        // $config['max_size']             = 2048;
-        // $config['max_width']            = 10000;
-        // $config['max_height']           = 10000;
+        $config['upload_path']          = './upload/';
+        $config['allowed_types']        = 'gif|jpg|png|pdf|doc|json|csv';
+        $config['max_size']             = 2048;
+        $config['max_width']            = 10000;
+        $config['max_height']           = 10000;
 
-        // $this->load->library('upload', $config);
+        $this->load->library('upload', $config);
 
-        // if (!$this->upload->do_upload('file')) {
-        // } else {
-        //     //tanda pengenal 
-        //     $file = $this->upload->data();
-        //     $file = $file['file_name'];
+        if (!$this->upload->do_upload('file')) {
+        } else {
+            //tanda pengenal 
+            $file = $this->upload->data();
+            $file = $file['file_name'];
 
-        //     $email = $this->input->post('email_balas', TRUE);
-        //     $subject = $this->input->post('subject', TRUE);
-        //     $pesan = $this->input->post('pesan', TRUE);
+            $email = $this->input->post('email_balas', TRUE);
+            $subject = $this->input->post('subject', TRUE);
+            $pesan = $this->input->post('pesan', TRUE);
 
 
-        //     $data = array(
-        //         'email_balas' => $email,
-        //         'subject' => $subject,
-        //         'pesan' => $pesan,
-        //         'file' => $file,
-        //     );
-        //     $save = $this->db->insert('permohonan', $data);
-        //     if ($save) {
-        //         set_pesan('data berhasil disimpan.');
-        //         redirect('permohonan_informasi');
-        //     } else {
-        //         set_pesan('data gagal disimpan', false);
-        //         redirect('permohonan_informasi/balas');
-        //     }
-        // }
+            $data = array(
+                'email_balas' => $email,
+                'subject' => $subject,
+                'pesan' => $pesan,
+                'file' => $file,
+            );
+            $save = $this->db->insert('permohonan', $data);
+            if ($save) {
+                set_pesan('data berhasil disimpan.');
+                redirect('permohonan_informasi');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('permohonan_informasi/balas');
+            }
+        }
     }
 
-    // public function balas_aksi()
-    // {
-    //     $to_email = $this->input->post('email');
-    //     $subject = $this->input->post('subject');
-    //     $message = $this->input->post('message');
-    //     $config = [
-    //         'mailtype' => 'html',
-    //         'charset' => 'utf-8',
-    //         'protocol' => 'smtp',
-    //         'smtp_host' => 'ssl://smtp.gmail.com',
-    //         'smtp_user' => 'gdvisuel777@gmail.com',
-    //         'smtp_pass' => 'wothltqzzrhaloib',
-    //         'smtp_post' =>   465,
-    //         'crlf'  => "\r\n",
-    //         'newline' => "\r\n"
+    public function balas_aksi()
+    {
+        $to_email = $this->input->post('email');
+        $subject = $this->input->post('subject');
+        $message = $this->input->post('message');
+        $config = [
+            'mailtype' => 'html',
+            'charset' => 'utf-8',
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.gmail.com',
+            'smtp_user' => 'gdvisuel777@gmail.com',
+            'smtp_pass' => 'wothltqzzrhaloib',
+            'smtp_post' =>   465,
+            'crlf'  => "\r\n",
+            'newline' => "\r\n"
 
-    //     ];
-    //     $this->load->library('email', $config);
-    //     $this->email->from("PPID DINKES KOTA CIMAHI");
-    //     $this->email->to($to_email);
-    //     $this->email->subject($subject);
-    //     $this->email->message($message);
+        ];
+        $this->load->library('email', $config);
+        $this->email->from("PPID DINKES KOTA CIMAHI");
+        $this->email->to($to_email);
+        $this->email->subject($subject);
+        $this->email->message($message);
 
 
-    //     if ($this->email->send()) {
-    //         echo 'terkirim';
-    //     } else {
-    //         echo 'gagal';
-    //     }
-    // }
+        if ($this->email->send()) {
+            echo 'terkirim';
+        } else {
+            echo 'gagal';
+        }
+    }
 
 
     public function delete($getId)
