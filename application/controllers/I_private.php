@@ -97,19 +97,19 @@ class I_private extends CI_Controller
                 redirect('i_private/add');
             }
         }
-        // if ($this->form_validation->run() == false) {
-        // } else {
+        if ($this->form_validation->run() == false) {
+        } else {
 
-        //     $input = $this->input->post(null, true);
-        //     $save = $this->admin->insert('i_private', $input);
-        //     if ($save) {
-        //         set_pesan('data berhasil disimpan.');
-        //         redirect('i_private');
-        //     } else {
-        //         set_pesan('data gagal disimpan', false);
-        //         redirect('i_private/add');
-        //     }
-        // }
+            $input = $this->input->post(null, true);
+            $save = $this->admin->insert('i_private', $input);
+            if ($save) {
+                set_pesan('data berhasil disimpan.');
+                redirect('i_private');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('i_private/add');
+            }
+        }
 
 
 
