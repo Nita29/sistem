@@ -66,16 +66,16 @@ class I_saat extends CI_Controller
         $this->_config();
         $data['title'] = "Informasi Pubik setiap saat";
 
-        // //inisiasi tabel dan field 
-        // $table = "i_saat";
-        // $field = "kode_dokumen";
-        // //generate kode unik
-        // $kode = 'FI-PSS-' . date('dmy');
-        // $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        // $kode_tambah = (int)substr($kode_terakhir, -5, 5);
-        // $kode_tambah++;
-        // $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        // $data['kode_dokumen'] = $kode . $number;
+        //inisiasi tabel dan field 
+        $table = "i_saat";
+        $field = "kode_dokumen";
+        //generate kode unik
+        $kode = 'FI-PSS-' . date('dmy');
+        $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+        $kode_tambah = (int)substr($kode_terakhir, -5, 5);
+        $kode_tambah++;
+        $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+        $data['kode_dokumen'] = $kode . $number;
 
         $this->template->load('templates/dashboard', 'i_saat/add', $data);
         if (!$this->upload->do_upload('upload')) {
@@ -110,32 +110,32 @@ class I_saat extends CI_Controller
         }
 
 
-        // if ($this->form_validation->run() == false) {
-        //     $data['title'] = "Informasi publik setiap saat";
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "Informasi publik setiap saat";
 
-        //     //inisiasi tabel dan field 
-        //     $table = "i_saat";
-        //     $field = "kode_dokumen";
-        //     //generate kode unik
-        //     $kode = 'F-ISS-' . date('dmy');
-        //     $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        //     $kode_tambah = substr($kode_terakhir, -5, 5);
-        //     $kode_tambah++;
-        //     $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        //     $data['kode_dokumen'] = $kode . $number;
+            //inisiasi tabel dan field 
+            $table = "i_saat";
+            $field = "kode_dokumen";
+            //generate kode unik
+            $kode = 'F-ISS-' . date('dmy');
+            $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+            $kode_tambah = substr($kode_terakhir, -5, 5);
+            $kode_tambah++;
+            $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+            $data['kode_dokumen'] = $kode . $number;
 
-        //     $this->template->load('templates/dashboard', 'i_saat/add', $data);
-        // } else {
-        //     $input = $this->input->post(null, true);
-        //     $save = $this->admin->insert('i_saat', $input);
-        //     if ($save) {
-        //         set_pesan('data berhasil disimpan.');
-        //         redirect('i_saat');
-        //     } else {
-        //         set_pesan('data gagal disimpan', false);
-        //         redirect('i_saat/add');
-        //     }
-        // }
+            $this->template->load('templates/dashboard', 'i_saat/add', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $save = $this->admin->insert('i_saat', $input);
+            if ($save) {
+                set_pesan('data berhasil disimpan.');
+                redirect('i_saat');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('i_saat/add');
+            }
+        }
     }
 
     public function edit($idSaat)
