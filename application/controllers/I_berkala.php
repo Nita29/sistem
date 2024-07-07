@@ -70,16 +70,16 @@ class I_berkala extends CI_Controller
         $this->_config();
         $data['title'] = "Informasi Publik secara berkala";
 
-        // //inisiasi tabel dan field 
-        // $table = "i_berkala";
-        // $field = "kode_dokumen";
-        // //generate kode unik
-        // $kode = 'F-IP-' . date('dmy');
-        // $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        // $kode_tambah = (int)substr($kode_terakhir, -5, 5);
-        // $kode_tambah++;
-        // $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        // $data['kode_dokumen'] = $kode . $number;
+        //inisiasi tabel dan field 
+        $table = "i_berkala";
+        $field = "kode_dokumen";
+        //generate kode unik
+        $kode = 'F-IP-' . date('dmy');
+        $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+        $kode_tambah = (int)substr($kode_terakhir, -5, 5);
+        $kode_tambah++;
+        $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+        $data['kode_dokumen'] = $kode . $number;
 
         $this->template->load('templates/dashboard', 'i_berkala/add', $data);
         if (!$this->upload->do_upload('upload')) {
@@ -114,33 +114,33 @@ class I_berkala extends CI_Controller
         }
 
 
-        // if ($this->form_validation->run() == false) {
-        //     $data['title'] = "Informasi publik secara berkala";
+        if ($this->form_validation->run() == false) {
+            $data['title'] = "Informasi publik secara berkala";
 
-        //     //inisiasi tabel dan field 
-        //     $table = "i_berkala";
-        //     $field = "kode_dokumen";
-        //     //generate kode unik
-        //     $kode = 'D-IPB-' . date('dmy');
-        //     $kode_terakhir = $this->admin->getMax($table, $field, $kode);
-        //     $kode_tambah = substr($kode_terakhir, -5, 5);
-        //     $kode_tambah++;
-        //     $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
-        //     $data['kode_dokumen'] = $kode . $number;
+            //inisiasi tabel dan field 
+            $table = "i_berkala";
+            $field = "kode_dokumen";
+            //generate kode unik
+            $kode = 'D-IPB-' . date('dmy');
+            $kode_terakhir = $this->admin->getMax($table, $field, $kode);
+            $kode_tambah = substr($kode_terakhir, -5, 5);
+            $kode_tambah++;
+            $number = str_pad($kode_tambah, 7, '0', STR_PAD_LEFT);
+            $data['kode_dokumen'] = $kode . $number;
 
 
-        //     $this->template->load('templates/dashboard', 'i_berkala/add', $data);
-        // } else {
-        //     $input = $this->input->post(null, true);
-        //     $save = $this->admin->insert('i_berkala', $input);
-        //     if ($save) {
-        //         set_pesan('data berhasil disimpan.');
-        //         redirect('i_berkala');
-        //     } else {
-        //         set_pesan('data gagal disimpan', false);
-        //         redirect('i_berkala/add');
-        //     }
-        // }
+            $this->template->load('templates/dashboard', 'i_berkala/add', $data);
+        } else {
+            $input = $this->input->post(null, true);
+            $save = $this->admin->insert('i_berkala', $input);
+            if ($save) {
+                set_pesan('data berhasil disimpan.');
+                redirect('i_berkala');
+            } else {
+                set_pesan('data gagal disimpan', false);
+                redirect('i_berkala/add');
+            }
+        }
     }
 
     //EDIT
